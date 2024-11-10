@@ -21,7 +21,7 @@ export default function Landing() {
     return (
         <div>
             <p className='text-5xl tracking-tighter'>
-                Welcome to the Home.
+                {/* Welcome to the Home. */}
             </p>
         </div>
     )

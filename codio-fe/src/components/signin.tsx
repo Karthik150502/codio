@@ -1,9 +1,8 @@
-import { FormEvent, useState } from 'react'
-import { getAuth, sendSignInLinkToEmail, signInWithPopup } from "firebase/auth";
+import { FormEvent } from 'react'
+import { getAuth, signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import { App } from '@/lib/auth';
-
 
 const provider = new GoogleAuthProvider();
 
@@ -11,25 +10,10 @@ const provider = new GoogleAuthProvider();
 
 
 
-type SignInData = {
-    email: string,
-    password: string
-}
-
 export default function Signin() {
     const { toast } = useToast();
-    const actionCodeSettings = {
-        // URL you want to redirect back to. The domain (www.example.com) for this
-        // URL must be in the authorized domains list in the Firebase Console.
-        url: 'http://localhost:5173',
-        // This must be true.
-        handleCodeInApp: true,
-    };
 
-    const [formData, setFormData] = useState<SignInData>({
-        email: "",
-        password: "",
-    } as SignInData);
+
     const auth = getAuth(App);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
